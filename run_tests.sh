@@ -14,10 +14,10 @@ num_times=$1
 
 # Note: you should set the problem sizes that you want to run-
 #        the following are very poor problem sizes
-for problem_size in 1024 2048 4096
+for problem_size in 16777215 33554432 67108864 134217728 268435456 536870912
 do
 
-  echo "******************  Problem Size: " $problem_size "  **********************"
+  # echo "******************  Problem Size: " $problem_size "  **********************"
 
   for num_threads in 1 2 4 8 12 16 24
   do

@@ -19,14 +19,14 @@ else
   command="./monteCarloPi_omp $problem_size $num_threads"
 fi
 
-echo "==============  Running " $num_times "tests of : " $command
+# echo "==============  Running " $num_times "tests of : " $command
 
 #for test in {1..$numtimes}
 #do
 counter=1
 while [ $counter -le $num_times ]
 do
-  echo "++++++++++++++++++++++ test" $counter "+++++++++++++++++++++++++++"
+  # echo "++++++++++++++++++++++ test" $counter "+++++++++++++++++++++++++++"
   $command
   ((counter++))
 done

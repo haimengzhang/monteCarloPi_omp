@@ -37,9 +37,11 @@ int main(int argc, char** argv) {
     // double numInCircle = 0;
     // int n;
     // pragma omp parallel
+    // omp omp_set_num_threads(numThreads)
+
     for(int n=0; n<numSamples; n++) {
       // generate randome numbers between 0.0 and 1.0
-      x = (double)rand_r(&seedx)/6RAND_MAX;
+      x = (double)rand_r(&seedx)/RAND_MAX;
       y = (double)rand_r(&seedy)/RAND_MAX;
 
       if ( (x*x + y*y) <= 1.0 ) {
@@ -47,7 +49,7 @@ int main(int argc, char** argv) {
       }
     }
     double pi = 4.0 * (double)(numInCircle) / (numSamples);
-  }
+
 // completion of work
     end = clock();  // end the timing
     time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
