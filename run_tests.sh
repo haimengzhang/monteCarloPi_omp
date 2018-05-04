@@ -14,7 +14,7 @@ num_times=$1
 
 # Note: you should set the problem sizes that you want to run-
 #        the following are very poor problem sizes
-for problem_size in 16777215 33554432 67108864 134217728 268435456 536870912
+for problem_size in 16777215 33554432 67108864 134217728 268435456 536870912 1073741824 #2147483648
 do
 
  echo "******************  Problem Size: " $problem_size "  **********************"

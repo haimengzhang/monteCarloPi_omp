@@ -57,7 +57,7 @@ int main(int argc, char** argv) {
     long numSamples = DEFAULT_THROWS;
     long numInCircle = 0;       //number of throws in the unit circle
     double x, y;                //hold x,y position of each sample 'throw'
-    unsigned int seedx;
+    unsigned int seedx;        //original thread seed used to generate seeds
     unsigned int seedy;
 
     /***  OMP ***/
@@ -125,15 +125,15 @@ int main(int argc, char** argv) {
 // completion of work
   end = omp_get_wtime(); // end the timing
   time_spent = (double)(end - begin);
-
+  //
   // printf("Calculation of pi using %ld samples: %15.14lf\n", numSamples, pi);
   // printf("Accuracy of pi calculation: %lf\n", pi - PI);
   // printf("Time spent: %15.12lf seconds\n", time_spent);
-
-  // printf("\n\n%15s%15s%15s%15s",
-  //          "SampleDots","pi","Accuracy","Time (sec)\n");
   //
-  // printf("%ld %15.14lf %lf %15.12lf\n", numSamples, pi, pi - PI, time_spent);
+  // printf("\n\n % %15s       %15s       %15s         %15s",
+  //          "SampleDots","pi","Accuracy","Time (sec)\n");
+
+  printf(" %d,         %ld,        %15.14lf,     %lf,     %15.12lf\n", numThreads, numSamples, pi, pi - PI, time_spent);
 
 
 }

@@ -54,8 +54,10 @@ int main(int argc, char** argv) {
     end = clock();  // end the timing
     time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
 
-    printf("Calculation of pi using %ld samples: %15.14lf\n", numSamples, pi);
-    printf("Accuracy of pi calculation: %lf\n", pi - PI);
-    printf("Time spent: %15.12lf seconds\n", time_spent);
+    // printf("Calculation of pi using %ld samples: %15.14lf\n", numSamples, pi);
+    // printf("Accuracy of pi calculation: %lf\n", pi - PI);
+    // printf("Time spent: %15.12lf seconds\n", time_spent);
+
+    printf(" %d,         %ld,        %15.14lf,     %lf,     %15.12lf\n", 1, numSamples, pi, pi - PI, time_spent);
 
 }
