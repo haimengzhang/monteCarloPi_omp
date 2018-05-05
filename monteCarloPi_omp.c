@@ -1,3 +1,8 @@
+/* Authors: Haimeng Zhang & Rose Havener; Macalester College, COMP240
+ * Date: 05/04/2018
+ * This file is a parallel version of using Monte Carlo method to estimate Pi.
+ * The file contains updated codes using OpenMP with threads, compared to the sequential version.
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -75,6 +80,7 @@ int main(int argc, char** argv) {
     /* parse command-line arg for number of threads */
     if (argc > 2) {
       numThreads = atoi(argv[2]);
+      // Add the arrays with the passed argument thread number
       seedsx[numThreads];
       seedsy[numThreads];
     }
@@ -82,6 +88,7 @@ int main(int argc, char** argv) {
     #ifdef _OPENMP
       // printf("OMP defined, numThreads = %d\n", numThreads);
       omp_set_num_threads(numThreads);
+      //call the functions to generate original seeds
       seedxThreads();
       seedyThreads();
     #else
@@ -133,6 +140,7 @@ int main(int argc, char** argv) {
   // printf("\n\n % %15s       %15s       %15s         %15s",
   //          "SampleDots","pi","Accuracy","Time (sec)\n");
 
+   // print the results of each thread in one line
   printf(" %d,         %ld,        %15.14lf,     %lf,     %15.12lf\n", numThreads, numSamples, pi, pi - PI, time_spent);
 
 
